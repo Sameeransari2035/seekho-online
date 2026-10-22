@@ -15,6 +15,7 @@ let score = 0;
 let answered = false;
 let timeLeft = TIME_LIMIT;
 let timerId = null;
+let currentCat = "all";
 
 const categoryBox = document.getElementById("category-box");
 const quizEl = document.getElementById("quiz");
@@ -26,7 +27,22 @@ const optionsEl = document.getElementById("options");
 const feedbackEl = document.getElementById("feedback");
 const nextBtn = document.getElementById("next-btn");
 const scoreText = document.getElementById("score-text");
+const bestText = document.getElementById("best-text");
 const restartBtn = document.getElementById("restart-btn");
+
+// Array ke items ko random order me karke naya array deta hai
+function shuffle(arr) {
+  const copy = arr.slice();
+
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = copy[i];
+    copy[i] = copy[j];
+    copy[j] = temp;
+  }
+
+  return copy;
+}
 
 // Category button dabane par quiz shuru
 document.querySelectorAll(".cat-btn").forEach(function (btn) {
@@ -34,15 +50,18 @@ document.querySelectorAll(".cat-btn").forEach(function (btn) {
     startQuiz(btn.dataset.cat);
   });
 });
-
 function startQuiz(cat) {
+  currentCat = cat;
+
+  let selected;
   if (cat === "all") {
-    sawalList = allQuestions.slice();
+    selected = allQuestions;
   } else {
-    sawalList = allQuestions.filter(function (q) {
+    selected = allQuestions.filter(function (q) {
       return q.category === cat;
     });
   }
+  sawalList = shuffle(selected);
 
   current = 0;
   score = 0;
@@ -140,6 +159,17 @@ function showResult() {
   quizEl.style.display = "none";
   resultEl.style.display = "block";
   scoreText.innerText = "Aapka score: " + score + " / " + sawalList.length;
+
+  // Is category ka purana best score padho
+  const key = "best-" + currentCat;
+  const oldBest = Number(localStorage.getItem(key)) || 0;
+
+  if (score > oldBest) {
+    localStorage.setItem(key, score);
+    bestText.textContent = "Naya best score: " + score + " 🎉";
+  } else {
+    bestText.textContent = "Aapka best score: " + oldBest;
+  }
 }
 
 restartBtn.addEventListener("click", function () {

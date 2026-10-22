@@ -1,3 +1,5 @@
+// search.js: lessons ko subject filter aur search box se chhupata/dikhata hai
+
 const searchEl = document.getElementById("search");
 const lessonEls = document.querySelectorAll(".lesson");
 const noResult = document.getElementById("no-result");
@@ -12,7 +14,13 @@ function applyFilters() {
   lessonEls.forEach(function (lesson) {
     const subjectOk =
       selectedSubject === "all" || lesson.dataset.subject === selectedSubject;
-    const textOk = lesson.innerText.toLowerCase().includes(text);
+
+    // Sirf title, paragraph aur points me dhundho (button me nahi)
+    const searchable =
+      lesson.querySelector("h2").innerText + " " +
+      lesson.querySelector("p").innerText + " " +
+      (lesson.querySelector("ul") ? lesson.querySelector("ul").innerText : "");
+    const textOk = searchable.toLowerCase().includes(text);
 
     if (subjectOk && textOk) {
       lesson.style.display = "block";
