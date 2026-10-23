@@ -508,3 +508,47 @@ body.dark .done-btn.done {
   color: white;
   border-color: #2b8a3e;
 }
+
+.read-link {
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 12px;
+  color: #2b4c7e;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.read-link:hover {
+  text-decoration: underline;
+}
+
+body.dark .read-link {
+  color: #9ec1ff;
+}
+
+.about-box {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.about-box h2 {
+  margin-bottom: 15px;
+}
+
+.about-box h3 {
+  margin: 25px 0 8px;
+  color: #2b4c7e;
+}
+
+.about-box ul {
+  margin-left: 20px;
+}
+
+.about-box li {
+  margin-bottom: 6px;
+}
+
+body.dark .about-box h3 {
+  color: #9ec1ff;
+}
