@@ -1,11 +1,3 @@
-const allQuestions = [
-  { category: "maths", sawal: "x + 5 = 10 me x kitna hai?", options: ["3", "5", "15"], sahi: 1 },
-  { category: "maths", sawal: "12 x 3 kitna hota hai?", options: ["36", "26", "46"], sahi: 0 },
-  { category: "science", sawal: "Paani ka chemical formula kya hai?", options: ["CO2", "H2O", "O2"], sahi: 1 },
-  { category: "science", sawal: "Hum saans me kaunsi gas lete hain?", options: ["Oxygen", "Nitrogen", "Helium"], sahi: 0 },
-  { category: "english", sawal: "'Happy' ka opposite kya hai?", options: ["Sad", "Glad", "Merry"], sahi: 0 },
-  { category: "english", sawal: "Sahi sentence chunein:", options: ["She go to school", "She goes to school", "She going school"], sahi: 1 }
-];
 
 const TIME_LIMIT = 15;
 
@@ -16,6 +8,7 @@ let answered = false;
 let timeLeft = TIME_LIMIT;
 let timerId = null;
 let currentCat = "all";
+let correctIndex = 0;
 
 const categoryBox = document.getElementById("category-box");
 const quizEl = document.getElementById("quiz");
@@ -101,9 +94,20 @@ function showQuestion() {
   nextBtn.style.display = "none";
   optionsEl.innerHTML = "";
 
-  q.options.forEach(function (opt, i) {
+  // Har option ke saath nishan lagao: sahi hai ya nahi
+  const optionObjs = q.options.map(function (text, i) {
+    return { text: text, correct: i === q.sahi };
+  });
+
+  // Shuffle karo, phir dekho sahi option ab kis position par hai
+  const shuffledOptions = shuffle(optionObjs);
+  correctIndex = shuffledOptions.findIndex(function (o) {
+    return o.correct;
+  });
+
+    shuffledOptions.forEach(function (opt, i) {
     const btn = document.createElement("button");
-    btn.innerText = opt;
+    btn.innerText = opt.text;
     btn.addEventListener("click", function () {
       checkAnswer(i, btn);
     });
@@ -118,16 +122,15 @@ function checkAnswer(chosen, btn) {
   answered = true;
   clearInterval(timerId);
 
-  const q = sawalList[current];
   const buttons = optionsEl.querySelectorAll("button");
 
-  if (chosen === q.sahi) {
+  if (chosen === correctIndex) {
     score++;
     btn.classList.add("sahi");
     feedbackEl.innerText = "Sahi jawab!";
   } else {
     btn.classList.add("galat");
-    buttons[q.sahi].classList.add("sahi");
+    buttons[correctIndex].classList.add("sahi");
     feedbackEl.innerText = "Galat jawab.";
   }
 
@@ -138,9 +141,8 @@ function timeUp() {
   if (answered) return;
   answered = true;
 
-  const q = sawalList[current];
   const buttons = optionsEl.querySelectorAll("button");
-  buttons[q.sahi].classList.add("sahi");
+  buttons[correctIndex].classList.add("sahi");
   feedbackEl.innerText = "Time khatam! Sahi jawab upar hara dikh raha hai.";
   nextBtn.style.display = "inline-block";
 }

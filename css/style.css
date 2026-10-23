@@ -552,3 +552,7 @@ body.dark .read-link {
 body.dark .about-box h3 {
   color: #9ec1ff;
 }
+
+nav a.active { font-weight: bold; text-decoration: underline; }
+.footer-links a.active { color: #1b3558; }
+body.dark .footer-links a.active { color: #ffffff; }
