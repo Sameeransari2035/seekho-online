@@ -47,3 +47,12 @@ filterBtns.forEach(function (btn) {
     applyFilters();
   });
 });
+
+// Home ke card se aaye hon (lessons.html?subject=Maths) to wahi subject chuno
+const subjectParam = new URLSearchParams(window.location.search).get("subject");
+if (subjectParam) {
+  const wantedBtn = document.querySelector(
+    '.filter-btn[data-subject="' + subjectParam + '"]'
+  );
+  if (wantedBtn) wantedBtn.click();
+}

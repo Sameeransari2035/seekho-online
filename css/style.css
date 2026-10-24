@@ -1,3 +1,4 @@
+/* ===== Base ===== */
 * {
   margin: 0;
   padding: 0;
@@ -5,18 +6,50 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
   line-height: 1.6;
   color: #222;
 }
 
+.btn {
+  background: #2b4c7e;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.read-link {
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 12px;
+  color: #2b4c7e;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.read-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== Header ===== */
 header {
   background: #2b4c7e;
   color: white;
-  padding: 15px 30px;
+  padding: 10px max(20px, calc((100% - 800px) / 2));
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  font-size: 20px;
 }
 
 nav a {
@@ -29,43 +62,9 @@ nav a:hover {
   text-decoration: underline;
 }
 
-.hero {
-  text-align: center;
-  padding: 60px 20px;
-  background: #eef3fa;
-}
-
-.hero p {
-  margin: 10px 0 20px;
-}
-
-.btn {
-  background: #2b4c7e;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-}
-
-.subjects {
-  display: flex;
-  gap: 20px;
-  padding: 40px 30px;
-  flex-wrap: wrap;
-}
-
-.card {
-  flex: 1;
-  min-width: 200px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #f2f2f2;
+nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 #menu-btn {
@@ -77,146 +76,6 @@ footer {
   cursor: pointer;
 }
 
-@media (max-width: 600px) {
-  header {
-    flex-wrap: wrap;
-  }
-
-  #menu-btn {
-    display: block;
-  }
-
-  nav {
-    display: none;
-    width: 100%;
-  }
-
-  nav.open {
-    display: block;
-  }
-
-  nav a {
-    display: block;
-    margin: 0;
-    padding: 10px 0;
-  }
-
-
-  .lessons {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 0 20px;
-  }
-
-  .lesson {
-    margin-bottom: 30px;
-    padding: 20px;
-    border-left: 4px solid #2b4c7e;
-    background: #f9fbfe;
-  }
-
-  .lesson h2 {
-    margin-bottom: 10px;
-  }
-
-  .lesson ul {
-    margin-left: 20px;
-  }
-}
-
-.quiz-box {
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-#progress {
-  color: #666;
-  margin-bottom: 10px;
-}
-
-#options button {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-#options button:hover {
-  background: #eef3fa;
-}
-
-#options button.sahi {
-  background: #c8f7c5;
-  border-color: green;
-}
-
-#options button.galat {
-  background: #f7c5c5;
-  border-color: red;
-}
-
-#feedback {
-  margin: 15px 0;
-  font-weight: bold;
-}
-
-.btn {
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.contact-box {
-  max-width: 500px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-.contact-box label {
-  display: block;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-.contact-box input,
-.contact-box textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  font-family: inherit;
-}
-
-.contact-box input.invalid,
-.contact-box textarea.invalid {
-  border-color: red;
-}
-
-.error {
-  color: red;
-  display: block;
-  min-height: 18px;
-}
-
-#contact-form .btn {
-  margin-top: 15px;
-}
-
-#success {
-  margin-top: 20px;
-  color: green;
-  font-weight: bold;
-}
-
 #theme-btn {
   background: none;
   border: none;
@@ -225,105 +84,11 @@ footer {
   margin-left: 20px;
 }
 
-body.dark {
-  background: #121212;
-  color: #eee;
-}
-
-body.dark .hero {
-  background: #1e1e1e;
-}
-
-body.dark .card,
-body.dark .lesson {
-  background: #1e1e1e;
-  border-color: #444;
-}
-
-body.dark #options button {
-  background: #1e1e1e;
-  color: #eee;
-  border-color: #555;
-}
-
-body.dark .contact-box input,
-body.dark .contact-box textarea {
-  background: #1e1e1e;
-  color: #eee;
-  border-color: #555;
-}
-
-body.dark footer {
-  background: #1e1e1e;
-}
-
-#search {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-}
-
-#no-result {
-  color: #c00;
-  font-weight: bold;
-}
-
-body.dark #search {
-  background: #1e1e1e;
-  color: #eee;
-  border-color: #555;
-}
-
-.cat-btn {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 14px;
-}
-
-#timer {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-#timer.urgent {
-  color: red;
-}
-
-.quote-box {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
+/* ===== Footer ===== */
+footer {
   text-align: center;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
-
-#quote-text {
-  font-style: italic;
-  margin: 10px 0;
-}
-
-body.dark .quote-box {
-  background: #1e1e1e;
-  border-color: #444;
-}
-
-body {
-  font-family: "Poppins", Arial, sans-serif;
-}
-
-.card,
-.lesson {
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  padding: 15px max(20px, calc((100% - 800px) / 2));
+  background: #f2f2f2;
 }
 
 .footer-links {
@@ -340,23 +105,54 @@ body {
   text-decoration: underline;
 }
 
-body.dark .footer-links a {
-  color: #9ec1ff;
+.footer-links a.active {
+  color: #1b3558;
 }
 
-header h1 {
-  font-size: 22px;
+/* ===== Home ===== */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: #eef3fa;
 }
 
 .hero h2 {
   font-size: 32px;
 }
 
+.hero p {
+  margin: 10px 0 20px;
+}
+
 .hero-img {
-  max-width: 100%;
+  max-width: 500px;
   height: auto;
+  display: block;
+  margin: 20px auto 0;
   border-radius: 8px;
-  margin-top: 20px;
+}
+
+.subjects {
+  display: flex;
+  gap: 20px;
+  padding: 40px 30px;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.card {
+  flex: 1;
+  min-width: 200px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+a.card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
 .card,
@@ -369,218 +165,23 @@ header h1 {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
-#filter-box {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 15px;
-}
-
-.filter-btn {
-  padding: 8px 16px;
-  border: 1px solid #2b4c7e;
-  background: white;
-  color: #2b4c7e;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 15px;
-}
-
-.filter-btn.active {
-  background: #2b4c7e;
-  color: white;
-}
-
-body.dark .filter-btn {
-  background: #1e1e1e;
-  color: #9ec1ff;
-  border-color: #9ec1ff;
-}
-
-body.dark .filter-btn.active {
-  background: #9ec1ff;
-  color: #121212;
-}
-
-.weather-box {
-  max-width: 500px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-.weather-search {
-  display: flex;
-  gap: 10px;
-  margin: 15px 0;
-}
-
-.weather-search input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  font-family: inherit;
-}
-
-#weather-msg {
-  margin: 10px 0;
-  font-weight: bold;
-}
-
-#weather-card {
+.quote-box {
+  max-width: 800px;
+  margin: 20px auto;
   padding: 20px;
   text-align: center;
   border: 1px solid #ddd;
   border-radius: 8px;
-  background: #eef3fa;
 }
 
-#w-temp {
-  font-size: 40px;
-  font-weight: bold;
+#quote-text {
+  font-style: italic;
   margin: 10px 0;
 }
 
-body.dark .weather-search input {
-  background: #1e1e1e;
-  color: #eee;
-  border-color: #555;
-}
-
-body.dark #weather-card {
-  background: #1e1e1e;
-  border-color: #444;
-}
-
-#progress-box {
-  margin-bottom: 20px;
-}
-
-#progress-text {
-  font-weight: bold;
-  margin-bottom: 6px;
-}
-
-.bar {
-  height: 12px;
-  background: #ddd;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-#bar-fill {
-  height: 100%;
-  width: 0;
-  background: #2b8a3e;
-  transition: width 0.3s;
-}
-
-.done-btn {
-  margin-top: 10px;
-  padding: 8px 14px;
-  border: 1px solid #2b4c7e;
-  background: white;
-  color: #2b4c7e;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.done-btn.done {
-  background: #2b8a3e;
-  border-color: #2b8a3e;
-  color: white;
-}
-
-body.dark .bar {
-  background: #444;
-}
-
-body.dark .done-btn {
-  background: #1e1e1e;
-  color: #9ec1ff;
-  border-color: #9ec1ff;
-}
-
-body.dark .done-btn.done {
-  background: #2b8a3e;
-  color: white;
-  border-color: #2b8a3e;
-}
-
-.read-link {
-  display: inline-block;
-  margin-top: 10px;
-  margin-right: 12px;
-  color: #2b4c7e;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.read-link:hover {
-  text-decoration: underline;
-}
-
-body.dark .read-link {
-  color: #9ec1ff;
-}
-
-.about-box {
-  max-width: 700px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-.about-box h2 {
-  margin-bottom: 15px;
-}
-
-.about-box h3 {
-  margin: 25px 0 8px;
-  color: #2b4c7e;
-}
-
-.about-box ul {
-  margin-left: 20px;
-}
-
-.about-box li {
-  margin-bottom: 6px;
-}
-
-body.dark .about-box h3 {
-  color: #9ec1ff;
-}
-
-nav a.active {
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.footer-links a.active {
-  color: #1b3558;
-}
-
-body.dark .footer-links a.active {
-  color: #ffffff;
-}
-
-#explain {
-  margin: 10px 0;
-  padding: 10px 12px;
-  background: #f9fbfe;
-  border-left: 4px solid #2b4c7e;
-  display: none;
-}
-
-body.dark #explain {
-  background: #1e1e1e;
-  border-left-color: #9ec1ff;
-}
-
+/* ===== Dashboard ===== */
 .dashboard {
-  max-width: 600px;
+  max-width: 800px;
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #ddd;
@@ -626,16 +227,24 @@ body.dark #explain {
   font-size: 22px;
 }
 
-body.dark .dashboard {
-  border-color: #444;
+.planner-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+  padding: 10px 12px;
+  background: #f9fbfe;
+  border-left: 4px solid #2b4c7e;
 }
 
-body.dark .score-card {
-  background: #1e1e1e;
+#planner-summary-text {
+  font-weight: bold;
 }
 
-body.dark .score-card small {
-  color: #aaa;
+.planner-summary .read-link {
+  margin: 0;
 }
 
 .reset-btn {
@@ -653,6 +262,402 @@ body.dark .score-card small {
   background: #fdeaea;
 }
 
+/* ===== Lessons ===== */
+.lessons,
+.lesson-page {
+  max-width: 760px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.lesson {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-left: 4px solid #2b4c7e;
+  background: #f9fbfe;
+}
+
+.lesson h2 {
+  margin-bottom: 10px;
+}
+
+.lesson ul {
+  margin-left: 20px;
+}
+
+#search {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+#no-result {
+  color: #c00;
+  font-weight: bold;
+}
+
+#filter-box {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border: 1px solid #2b4c7e;
+  background: white;
+  color: #2b4c7e;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.filter-btn.active {
+  background: #2b4c7e;
+  color: white;
+}
+
+#progress-box {
+  margin-bottom: 20px;
+}
+
+#progress-text {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.bar {
+  height: 12px;
+  background: #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#bar-fill {
+  height: 100%;
+  width: 0;
+  background: #2b8a3e;
+  transition: width 0.3s;
+}
+
+.done-btn {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border: 1px solid #2b4c7e;
+  background: white;
+  color: #2b4c7e;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.done-btn.done {
+  background: #2b8a3e;
+  border-color: #2b8a3e;
+  color: white;
+}
+
+/* ===== Quiz ===== */
+.quiz-box {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.cat-btn {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 14px;
+}
+
+#progress {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+#timer {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#timer.urgent {
+  color: red;
+}
+
+#options button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#options button:hover {
+  background: #eef3fa;
+}
+
+#options button.sahi {
+  background: #c8f7c5;
+  border-color: green;
+}
+
+#options button.galat {
+  background: #f7c5c5;
+  border-color: red;
+}
+
+#feedback {
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+#explain {
+  margin: 10px 0;
+  padding: 10px 12px;
+  background: #f9fbfe;
+  border-left: 4px solid #2b4c7e;
+  display: none;
+}
+
+/* ===== Contact ===== */
+.contact-box {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.contact-box label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.contact-box input.invalid,
+.contact-box textarea.invalid {
+  border-color: red;
+}
+
+.error {
+  color: red;
+  display: block;
+  min-height: 18px;
+}
+
+#contact-form .btn {
+  margin-top: 15px;
+}
+
+#success {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+}
+
+/* ===== Weather ===== */
+.weather-box {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.weather-search {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.weather-search input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+#weather-msg {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+#weather-card {
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #eef3fa;
+}
+
+#w-temp {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* ===== About ===== */
+.about-box {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.about-box h2 {
+  margin-bottom: 15px;
+}
+
+.about-box h3 {
+  margin: 25px 0 8px;
+  color: #2b4c7e;
+}
+
+.about-box ul {
+  margin-left: 20px;
+}
+
+.about-box li {
+  margin-bottom: 6px;
+}
+
+/* ===== Planner ===== */
+.planner-box {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.planner-box h2 {
+  margin-bottom: 15px;
+}
+
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.task-form input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+#task-count {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#task-list {
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #f9fbfe;
+}
+
+.task-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.task-item span {
+  flex: 1;
+}
+
+.task-item.done span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.del-btn {
+  border: none;
+  background: none;
+  color: #c00;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ===== Dark mode ===== */
+body.dark {
+  background: #121212;
+  color: #eee;
+}
+
+body.dark .hero {
+  background: #1e1e1e;
+}
+
+body.dark .card,
+body.dark .lesson {
+  background: #1e1e1e;
+  border-color: #444;
+}
+
+body.dark footer {
+  background: #1e1e1e;
+}
+
+body.dark .footer-links a {
+  color: #9ec1ff;
+}
+
+body.dark .footer-links a.active {
+  color: #ffffff;
+}
+
+body.dark .quote-box {
+  background: #1e1e1e;
+  border-color: #444;
+}
+
+body.dark .dashboard {
+  border-color: #444;
+}
+
+body.dark .score-card {
+  background: #1e1e1e;
+}
+
+body.dark .score-card small {
+  color: #aaa;
+}
+
+body.dark .planner-summary {
+  background: #1e1e1e;
+  border-left-color: #9ec1ff;
+}
+
 body.dark .reset-btn {
   background: #1e1e1e;
   color: #ff8a8a;
@@ -661,4 +666,119 @@ body.dark .reset-btn {
 
 body.dark .reset-btn:hover {
   background: #2a1a1a;
+}
+
+body.dark #search {
+  background: #1e1e1e;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark .filter-btn {
+  background: #1e1e1e;
+  color: #9ec1ff;
+  border-color: #9ec1ff;
+}
+
+body.dark .filter-btn.active {
+  background: #9ec1ff;
+  color: #121212;
+}
+
+body.dark .bar {
+  background: #444;
+}
+
+body.dark .done-btn {
+  background: #1e1e1e;
+  color: #9ec1ff;
+  border-color: #9ec1ff;
+}
+
+body.dark .done-btn.done {
+  background: #2b8a3e;
+  color: white;
+  border-color: #2b8a3e;
+}
+
+body.dark .read-link {
+  color: #9ec1ff;
+}
+
+body.dark #options button {
+  background: #1e1e1e;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark #explain {
+  background: #1e1e1e;
+  border-left-color: #9ec1ff;
+}
+
+body.dark .contact-box input,
+body.dark .contact-box textarea {
+  background: #1e1e1e;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark .weather-search input {
+  background: #1e1e1e;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark #weather-card {
+  background: #1e1e1e;
+  border-color: #444;
+}
+
+body.dark .about-box h3 {
+  color: #9ec1ff;
+}
+
+body.dark .task-form input {
+  background: #1e1e1e;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark .task-item {
+  background: #1e1e1e;
+  border-color: #444;
+}
+
+body.dark .task-item.done span {
+  color: #777;
+}
+
+body.dark .del-btn {
+  color: #ff8a8a;
+}
+
+/* ===== Mobile (sabse end me rakhein) ===== */
+@media (max-width: 600px) {
+  header {
+    flex-wrap: wrap;
+  }
+
+  #menu-btn {
+    display: block;
+  }
+
+  #menu {
+    display: none;
+    width: 100%;
+  }
+
+  #menu.open {
+    display: block;
+  }
+
+  #menu a {
+    display: block;
+    margin: 0;
+    padding: 10px 0;
+  }
 }

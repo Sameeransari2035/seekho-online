@@ -24,11 +24,15 @@ homeBarFill.style.width = percent + "%";
 });
 
 // Progress aur best scores saaf karne ka button
+// Progress, best scores aur planner ke kaam saaf karne ka button
 document.getElementById("reset-btn").addEventListener("click", function () {
-  const sure = confirm("Pakka? Padhe hue lessons aur best scores hamesha ke liye hat jayenge.");
+  const sure = confirm(
+    "Pakka? Padhe hue lessons, best scores aur planner ke saare kaam hamesha ke liye hat jayenge."
+  );
   if (!sure) return;
 
   localStorage.removeItem("doneLessons");
+  localStorage.removeItem("tasks");
   ["maths", "science", "english", "all"].forEach(function (cat) {
     localStorage.removeItem("best-" + cat);
   });

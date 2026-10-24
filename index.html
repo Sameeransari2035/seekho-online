@@ -27,33 +27,37 @@
       <p>Maths, Science aur English ke notes aur quizzes, bilkul free.</p>
       <a class="btn" href="lessons.html">Padhai shuru karein</a>
       <br>
-      <img
-        src="images/students.webp.jpg"
-        alt="Padhte hue bachche" class="hero-img">
+      <img src="images/students.webp.jpg" alt="Padhte hue bachche" class="hero-img">
     </section>
 
-<section class="dashboard">
-  <h3>Aapki padhai</h3>
+    <section class="dashboard">
+      <h3>Aapki padhai</h3>
 
-  <p id="home-progress-text"></p>
-  <div class="bar"><div id="home-bar-fill"></div></div>
+      <p id="home-progress-text"></p>
+      <div class="bar">
+        <div id="home-bar-fill"></div>
+      </div>
 
-  <div class="score-grid">
-    <div class="score-card">
-      <small>Maths</small>
-      <strong id="best-maths">-</strong>
-    </div>
-    <div class="score-card">
-      <small>Science</small>
-      <strong id="best-science">-</strong>
-    </div>
-    <div class="score-card">
-      <small>English</small>
-      <strong id="best-english">-</strong>
-    </div>
-  </div>
-    <button id="reset-btn" class="reset-btn">Progress reset karein</button>
-</section>
+      <div class="score-grid">
+        <div class="score-card">
+          <small>Maths</small>
+          <strong id="best-maths">-</strong>
+        </div>
+        <div class="score-card">
+          <small>Science</small>
+          <strong id="best-science">-</strong>
+        </div>
+        <div class="score-card">
+          <small>English</small>
+          <strong id="best-english">-</strong>
+        </div>
+      </div>
+      <div class="planner-summary">
+        <span id="planner-summary-text">Aaj ke kaam: -</span>
+        <a href="planner.html" class="read-link">Planner kholein →</a>
+      </div>
+      <button id="reset-btn" class="reset-btn">Progress reset karein</button>
+    </section>
 
 
     <section class="quote-box">
@@ -65,19 +69,19 @@
     </section>
 
     <section class="subjects">
-      <div class="card">
-        <h3>Maths</h3>
-        <p>Algebra, Geometry</p>
-      </div>
-      <div class="card">
-        <h3>Science</h3>
-        <p>Physics, Chemistry</p>
-      </div>
-      <div class="card">
-        <h3>English</h3>
-        <p>Grammar, Writing</p>
-      </div>
-    </section>
+  <a class="card" href="lessons.html?subject=Maths">
+    <h3>Maths</h3>
+    <p>Algebra, Geometry</p>
+  </a>
+  <a class="card" href="lessons.html?subject=Science">
+    <h3>Science</h3>
+    <p>Physics, Chemistry</p>
+  </a>
+  <a class="card" href="lessons.html?subject=English">
+    <h3>English</h3>
+    <p>Grammar, Writing</p>
+  </a>
+</section>
   </main>
 
   <footer id="site-footer"></footer>

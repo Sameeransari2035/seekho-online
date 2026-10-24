@@ -6,7 +6,8 @@ const pages = [
   { name: "Quiz", file: "quiz.html" },
   { name: "Contact", file: "contact.html" },
   { name: "Weather", file: "weather.html" },
-  { name: "About", file: "about.html" }
+  { name: "About", file: "about.html" },
+  { name: "Planner", file: "planner.html" },
 ];
 
 // Abhi kaunsa page khula hai (jaise "lessons.html")
@@ -15,7 +16,7 @@ if (currentFile === "") currentFile = "index.html";
 
 function buildHeader() {
   let links = "";
-    pages.forEach(function (p) {
+  pages.forEach(function (p) {
     const cls = p.file === currentFile ? ' class="active"' : "";
     links += '<a href="' + p.file + '"' + cls + ">" + p.name + "</a>";
   });
@@ -32,7 +33,7 @@ function buildHeader() {
 
 function buildFooter() {
   let links = "";
-    pages.forEach(function (p) {
+  pages.forEach(function (p) {
     const cls = p.file === currentFile ? ' class="active"' : "";
     links += '<a href="' + p.file + '"' + cls + ">" + p.name + "</a>";
   });
