@@ -93,6 +93,10 @@ footer {
 
 .footer-links {
   margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 0;
 }
 
 .footer-links a {
@@ -125,6 +129,7 @@ footer {
 }
 
 .hero-img {
+  width: 100%;
   max-width: 500px;
   height: auto;
   display: block;
@@ -780,5 +785,35 @@ body.dark .del-btn {
     display: block;
     margin: 0;
     padding: 10px 0;
+  }
+
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  .subjects {
+    padding: 20px;
+  }
+
+  .dashboard,
+  .quote-box {
+    margin: 20px 15px;
+  }
+
+  .score-grid {
+    flex-wrap: wrap;
+  }
+
+  .score-card {
+    min-width: 90px;
+  }
+
+  .weather-search,
+  .task-form {
+    flex-wrap: wrap;
   }
 }
