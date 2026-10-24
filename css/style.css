@@ -553,6 +553,112 @@ body.dark .about-box h3 {
   color: #9ec1ff;
 }
 
-nav a.active { font-weight: bold; text-decoration: underline; }
-.footer-links a.active { color: #1b3558; }
-body.dark .footer-links a.active { color: #ffffff; }
+nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.footer-links a.active {
+  color: #1b3558;
+}
+
+body.dark .footer-links a.active {
+  color: #ffffff;
+}
+
+#explain {
+  margin: 10px 0;
+  padding: 10px 12px;
+  background: #f9fbfe;
+  border-left: 4px solid #2b4c7e;
+  display: none;
+}
+
+body.dark #explain {
+  background: #1e1e1e;
+  border-left-color: #9ec1ff;
+}
+
+.dashboard {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.dashboard h3 {
+  margin-bottom: 10px;
+}
+
+#home-progress-text {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+#home-bar-fill {
+  height: 100%;
+  width: 0;
+  background: #2b8a3e;
+  transition: width 0.3s;
+}
+
+.score-grid {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.score-card {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  background: #eef3fa;
+  border-radius: 6px;
+}
+
+.score-card small {
+  display: block;
+  color: #666;
+}
+
+.score-card strong {
+  font-size: 22px;
+}
+
+body.dark .dashboard {
+  border-color: #444;
+}
+
+body.dark .score-card {
+  background: #1e1e1e;
+}
+
+body.dark .score-card small {
+  color: #aaa;
+}
+
+.reset-btn {
+  margin-top: 15px;
+  padding: 8px 14px;
+  border: 1px solid #c00;
+  background: white;
+  color: #c00;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.reset-btn:hover {
+  background: #fdeaea;
+}
+
+body.dark .reset-btn {
+  background: #1e1e1e;
+  color: #ff8a8a;
+  border-color: #ff8a8a;
+}
+
+body.dark .reset-btn:hover {
+  background: #2a1a1a;
+}

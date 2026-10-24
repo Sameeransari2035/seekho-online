@@ -18,6 +18,7 @@ const timerEl = document.getElementById("timer");
 const sawalEl = document.getElementById("sawal");
 const optionsEl = document.getElementById("options");
 const feedbackEl = document.getElementById("feedback");
+const explainEl = document.getElementById("explain");
 const nextBtn = document.getElementById("next-btn");
 const scoreText = document.getElementById("score-text");
 const bestText = document.getElementById("best-text");
@@ -43,6 +44,23 @@ document.querySelectorAll(".cat-btn").forEach(function (btn) {
     startQuiz(btn.dataset.cat);
   });
 });
+
+// Har category button par sawalon ki ginti jodo
+document.querySelectorAll(".cat-btn").forEach(function (btn) {
+  const cat = btn.dataset.cat;
+  let count;
+
+  if (cat === "all") {
+    count = allQuestions.length;
+  } else {
+    count = allQuestions.filter(function (q) {
+      return q.category === cat;
+    }).length;
+  }
+
+  btn.textContent = btn.textContent + " (" + count + " sawal)";
+});
+
 function startQuiz(cat) {
   currentCat = cat;
 
@@ -91,6 +109,8 @@ function showQuestion() {
   progressEl.innerText = "Sawal " + (current + 1) + " / " + sawalList.length;
   sawalEl.innerText = q.sawal;
   feedbackEl.innerText = "";
+  explainEl.textContent = "";
+  explainEl.style.display = "none";
   nextBtn.style.display = "none";
   optionsEl.innerHTML = "";
 
@@ -105,7 +125,7 @@ function showQuestion() {
     return o.correct;
   });
 
-    shuffledOptions.forEach(function (opt, i) {
+  shuffledOptions.forEach(function (opt, i) {
     const btn = document.createElement("button");
     btn.innerText = opt.text;
     btn.addEventListener("click", function () {
@@ -115,6 +135,15 @@ function showQuestion() {
   });
 
   startTimer();
+}
+
+// Sawal ki explanation dikhata hai (agar likhi ho)
+function showExplain() {
+  const q = sawalList[current];
+  if (q.explain) {
+    explainEl.textContent = q.explain;
+    explainEl.style.display = "block";
+  }
 }
 
 function checkAnswer(chosen, btn) {
@@ -134,6 +163,7 @@ function checkAnswer(chosen, btn) {
     feedbackEl.innerText = "Galat jawab.";
   }
 
+  showExplain();
   nextBtn.style.display = "inline-block";
 }
 
@@ -144,8 +174,11 @@ function timeUp() {
   const buttons = optionsEl.querySelectorAll("button");
   buttons[correctIndex].classList.add("sahi");
   feedbackEl.innerText = "Time khatam! Sahi jawab upar hara dikh raha hai.";
+
+  showExplain();
   nextBtn.style.display = "inline-block";
 }
+
 
 nextBtn.addEventListener("click", function () {
   current++;
